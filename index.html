@@ -1,0 +1,891 @@
+<!doctype html>
+<html lang="en" class="h-full">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FIVEM INFOTECH</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&amp;family=Outfit:wght@300;400;500;600;700;800&amp;display=swap"
+    rel="stylesheet">
+  <link rel="icon" href="/fav.png">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['Outfit', 'sans-serif'],
+            body: ['DM Sans', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    /* Animated gradient bg */
+    .hero-bg {
+      background: linear-gradient(135deg, #0a0a0f 0%, #0d1117 30%, #101820 60%, #0a0a0f 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(ellipse at 30% 50%, rgba(56, 189, 248, 0.06) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 20%, rgba(139, 92, 246, 0.05) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 80%, rgba(16, 185, 129, 0.04) 0%, transparent 50%);
+      animation: heroFloat 20s ease-in-out infinite;
+    }
+
+    @keyframes heroFloat {
+
+      0%,
+      100% {
+        transform: translate(0, 0) rotate(0deg);
+      }
+
+      33% {
+        transform: translate(2%, -1%) rotate(1deg);
+      }
+
+      66% {
+        transform: translate(-1%, 2%) rotate(-1deg);
+      }
+    }
+
+    /* Grid pattern overlay */
+    .grid-pattern {
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    /* Glass card */
+    .glass {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .glass-light {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    /* Fade in on scroll */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Stagger children */
+    .stagger>.reveal:nth-child(1) {
+      transition-delay: 0s;
+    }
+
+    .stagger>.reveal:nth-child(2) {
+      transition-delay: 0.08s;
+    }
+
+    .stagger>.reveal:nth-child(3) {
+      transition-delay: 0.16s;
+    }
+
+    .stagger>.reveal:nth-child(4) {
+      transition-delay: 0.24s;
+    }
+
+    .stagger>.reveal:nth-child(5) {
+      transition-delay: 0.32s;
+    }
+
+    .stagger>.reveal:nth-child(6) {
+      transition-delay: 0.4s;
+    }
+
+    .stagger>.reveal:nth-child(7) {
+      transition-delay: 0.48s;
+    }
+
+    .stagger>.reveal:nth-child(8) {
+      transition-delay: 0.56s;
+    }
+
+    /* Glow button */
+    .btn-glow {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .btn-glow::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+
+    .btn-glow:hover::after {
+      width: 300px;
+      height: 300px;
+    }
+
+    /* Service card hover */
+    .service-card {
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Portfolio card */
+    .portfolio-card {
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .portfolio-card:hover .portfolio-overlay {
+      opacity: 1;
+    }
+
+    .portfolio-overlay {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    /* Timeline */
+    .timeline-line {
+      width: 2px;
+      background: linear-gradient(to bottom, #38bdf8, #8b5cf6, #10b981);
+    }
+
+    .timeline-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #38bdf8;
+      border: 3px solid #0a0a0f;
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.3);
+    }
+
+    /* Process step */
+    .process-step {
+      transition: all 0.3s ease;
+    }
+
+    .process-step:hover {
+      transform: scale(1.03);
+    }
+
+    /* Nav */
+    .nav-blur {
+      backdrop-filter: blur(20px);
+      background: rgba(10, 10, 15, 0.8);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Accent gradient text */
+    .gradient-text {
+      background: linear-gradient(135deg, #38bdf8, #8b5cf6, #10b981);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Number counter */
+    .stat-number {
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Testimonial quote */
+    .quote-mark {
+      font-size: 80px;
+      line-height: 1;
+      color: rgba(56, 189, 248, 0.15);
+      font-family: Georgia, serif;
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #0a0a0f;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 3px;
+    }
+  </style>
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+  </style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="/data.js" type="text/javascript"></script>
+</head>
+
+<body class="h-full w-full bg-white text-gray-900 overflow-auto">
+  <!-- NAV -->
+  <nav id="mainNav" class="fixed top-0 left-0 right-0 z-50 nav-blur transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#hero" class="flex items-center gap-2">
+        <div class="">
+          <span class="text-white font-heading font-bold text-sm"><img width="40px" src="/fav.png" alt=""></span>
+        </div><span class="text-white font-heading font-semibold text-lg tracking-tight">FIVEM<span
+            class="text-sky-400">INFOTECH</span></span>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#about" class="text-gray-400 hover:text-white text-sm transition-colors">About</a> <a href="#services"
+          class="text-gray-400 hover:text-white text-sm transition-colors">Services</a> <a href="#portfolio"
+          class="text-gray-400 hover:text-white text-sm transition-colors">Portfolio</a> <a href="#systems"
+          class="text-gray-400 hover:text-white text-sm transition-colors">Systems</a> <a href="#process"
+          class="text-gray-400 hover:text-white text-sm transition-colors">Process</a>
+        <a href="#team" class="text-gray-400 hover:text-white text-sm transition-colors">Our Team</a> <a
+          href="https://fiveminfotech.com/contact" target="_blank"
+          class="bg-sky-500 hover:bg-sky-400 text-white text-sm font-medium px-5 py-2.5 rounded-lg transition-colors btn-glow">Get
+          in Touch</a>
+      </div><button id="mobileMenuBtn" class="md:hidden text-white" aria-label="Open menu"> <i data-lucide="menu"
+          style="width:24px;height:24px;"></i> </button>
+    </div>
+  </nav><!-- Mobile Menu -->
+  <div id="mobileMenu"
+    class="mobile-menu fixed top-0 right-0 bottom-0 w-72 z-50 bg-gray-950 border-l border-white/5 p-6 flex flex-col">
+    <button id="mobileMenuClose" class="self-end text-white mb-8" aria-label="Close menu"><i data-lucide="x"
+        style="width:24px;height:24px;"></i></button>
+    <div class="flex flex-col gap-6">
+      <a href="#about" class="text-gray-300 hover:text-white text-lg font-medium mobile-link">About</a> <a
+        href="#services" class="text-gray-300 hover:text-white text-lg font-medium mobile-link">Services</a> <a
+        href="#portfolio" class="text-gray-300 hover:text-white text-lg font-medium mobile-link">Portfolio</a> <a
+        href="#systems" class="text-gray-300 hover:text-white text-lg font-medium mobile-link">Systems</a> <a
+        href="#process" class="text-gray-300 hover:text-white text-lg font-medium mobile-link">Process</a> <a
+        href="#team" class="text-gray-400 hover:text-white text-sm transition-colors">Our Team</a> <a
+        href="https://fiveminfotech.com/contact" target="_blank"
+        class="bg-sky-500 text-white text-center py-3 rounded-lg font-medium mt-4 mobile-link">Get in Touch</a>
+    </div>
+  </div><!-- HERO -->
+  <section id="hero" class="hero-bg grid-pattern relative min-h-[100%] flex items-center">
+    <div class="relative z-10 max-w-7xl mx-auto px-6 py-32 md:py-40">
+      <div class="max-w-3xl">
+        <div
+          class="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 mb-8 reveal">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> <span
+            class="text-gray-400 text-sm">Trusted by businesses worldwide</span>
+        </div>
+        <h1 id="heroHeadline"
+          class="font-heading text-4xl md:text-6xl lg:text-7xl font-bold text-black leading-[1.1] tracking-tight mb-6 reveal">
+          Building Smart Digital Systems That Drive Real Business Growth</h1>
+        <p id="heroSubheadline" class="text-gray-400 text-lg md:text-xl max-w-xl mb-10 leading-relaxed reveal">Custom
+          Software • Automation • Scalable Platforms</p>
+        <div class="flex flex-wrap gap-4 reveal">
+          <a href="#portfolio"
+            class="bg-sky-500 hover:bg-sky-400 text-white font-medium px-7 py-3.5 rounded-lg transition-all btn-glow inline-flex items-center gap-2">
+            View Our Work <i data-lucide="arrow-right" style="width:18px;height:18px;"></i> </a> <a href="#contact"
+            class="bg-white/5 hover:bg-white/10 text-black border border-white/10 font-medium px-7 py-3.5 rounded-lg transition-all inline-flex items-center gap-2">
+            Free Consultation <i data-lucide="message-circle" style="width:18px;height:18px;"></i> </a>
+        </div>
+      </div><!-- Stats bar -->
+      <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 reveal">
+        <div class="glass rounded-xl p-5 text-center">
+          <div class="text-3xl font-heading font-bold text-black stat-number" data-target="50">
+            0
+          </div>
+          <div class="text-sm text-gray-400 mt-1">
+            Projects Delivered
+          </div>
+        </div>
+        <div class="glass rounded-xl p-5 text-center">
+          <div class="text-3xl font-heading font-bold text-black stat-number" data-target="8">
+            0
+          </div>
+          <div class="text-sm text-gray-400 mt-1">
+            Industries Served
+          </div>
+        </div>
+        <div class="glass rounded-xl p-5 text-center">
+          <div class="text-3xl font-heading font-bold text-black stat-number" data-target="98">
+            0
+          </div>
+          <div class="text-sm text-gray-400 mt-1">
+            % On-Time Delivery
+          </div>
+        </div>
+        <div class="glass rounded-xl p-5 text-center">
+          <div class="text-3xl font-heading font-bold text-black stat-number" data-target="5">
+            0
+          </div>
+          <div class="text-sm text-gray-400 mt-1">
+            Years of Excellence
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!-- ABOUT -->
+  <section id="about" class="bg-gray-950 py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div class="reveal">
+          <span class="text-sky-400 text-sm font-medium uppercase tracking-widest">About Us</span>
+          <h2 id="aboutTitle" class="font-heading text-3xl md:text-5xl font-bold text-white mt-3 mb-6 leading-tight">
+            Technology That Respects Trust</h2>
+          <p class="text-gray-400 leading-relaxed mb-6">FIVEM INFOTECH is a research-driven software development company
+            specializing in custom business solutions, automation systems, and scalable platforms. We partner with
+            businesses across industries to build technology that solves real problems — reliably, ethically, and on
+            time.</p>
+          <p class="text-gray-400 leading-relaxed mb-8">Our philosophy is simple: understand deeply, research
+            thoroughly, then build with precision. Every project begins with a clear commitment to quality,
+            transparency, and your success.</p>
+          <div class="space-y-4">
+            <div class="flex items-start gap-3">
+              <div class="mt-1 w-8 h-8 rounded-lg bg-sky-500/10 flex items-center justify-center flex-shrink-0">
+                <i data-lucide="shield-check" style="width:16px;height:16px;color:#38bdf8;"></i>
+              </div>
+              <div>
+                <div class="text-white font-medium text-sm">
+                  Highest Confidentiality Standards
+                </div>
+                <div class="text-gray-500 text-sm">
+                  Your data, ideas, and business logic stay exclusively yours.
+                </div>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="mt-1 w-8 h-8 rounded-lg bg-violet-500/10 flex items-center justify-center flex-shrink-0">
+                <i data-lucide="clock" style="width:16px;height:16px;color:#8b5cf6;"></i>
+              </div>
+              <div>
+                <div class="text-white font-medium text-sm">
+                  On-Time, Every Time
+                </div>
+                <div class="text-gray-500 text-sm">
+                  We deliver what we promise — no excuses, no delays.
+                </div>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="mt-1 w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center flex-shrink-0">
+                <i data-lucide="search" style="width:16px;height:16px;color:#10b981;"></i>
+              </div>
+              <div>
+                <div class="text-white font-medium text-sm">
+                  Research-First Approach
+                </div>
+                <div class="text-gray-500 text-sm">
+                  We research, optimize, then build — never the other way around.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!-- Visual element -->
+        <div class="reveal">
+          <div class="relative">
+            <div class="glass rounded-2xl p-8 space-y-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                <div class="w-3 h-3 rounded-full bg-green-400"></div>
+              </div>
+              <div class="space-y-3">
+                <div class="flex items-center gap-3"><span class="text-sky-400 font-mono text-xs">01</span>
+                  <div class="h-2 bg-sky-500/20 rounded-full w-3/4"></div>
+                </div>
+                <div class="flex items-center gap-3"><span class="text-violet-400 font-mono text-xs">02</span>
+                  <div class="h-2 bg-violet-500/20 rounded-full w-1/2"></div>
+                </div>
+                <div class="flex items-center gap-3"><span class="text-emerald-400 font-mono text-xs">03</span>
+                  <div class="h-2 bg-emerald-500/20 rounded-full w-5/6"></div>
+                </div>
+                <div class="flex items-center gap-3"><span class="text-sky-400 font-mono text-xs">04</span>
+                  <div class="h-2 bg-sky-500/20 rounded-full w-2/3"></div>
+                </div>
+              </div>
+              <div class="mt-6 grid grid-cols-3 gap-3">
+                <div class="bg-sky-500/10 rounded-lg p-3 text-center">
+                  <div class="text-sky-400 font-heading font-bold text-lg">
+                    99%
+                  </div>
+                  <div class="text-gray-500 text-xs">
+                    Uptime
+                  </div>
+                </div>
+                <div class="bg-violet-500/10 rounded-lg p-3 text-center">
+                  <div class="text-violet-400 font-heading font-bold text-lg">
+                    A+
+                  </div>
+                  <div class="text-gray-500 text-xs">
+                    Security
+                  </div>
+                </div>
+                <div class="bg-emerald-500/10 rounded-lg p-3 text-center">
+                  <div class="text-emerald-400 font-heading font-bold text-lg">
+                    Fast
+                  </div>
+                  <div class="text-gray-500 text-xs">
+                    Delivery
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-sky-500/20 to-violet-500/20 rounded-full blur-2xl">
+            </div>
+            <div
+              class="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-br from-emerald-500/20 to-sky-500/20 rounded-full blur-2xl">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!-- SERVICES -->
+  <section id="services" class="bg-white py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16 reveal">
+        <span class="text-sky-500 text-sm font-medium uppercase tracking-widest">What We Do</span>
+        <h2 class="font-heading text-3xl md:text-5xl font-bold text-gray-900 mt-3">Services We Offer</h2>
+        <p class="text-gray-500 mt-4 max-w-xl mx-auto">End-to-end technology solutions tailored for your business
+          growth.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 stagger" id="servicesGrid">
+      </div>
+    </div>
+  </section><!-- PORTFOLIO -->
+  <section id="portfolio" class="bg-gray-50 py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16 reveal">
+        <span class="text-sky-500 text-sm font-medium uppercase tracking-widest">Our Work</span>
+        <h2 class="font-heading text-3xl md:text-5xl font-bold text-gray-900 mt-3">Portfolio</h2>
+        <p class="text-gray-500 mt-4 max-w-xl mx-auto">A selection of projects we've delivered across industries.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 stagger" id="portfolioGrid"></div>
+    </div>
+  </section><!-- SYSTEMS -->
+  <section id="systems" class="bg-gray-950 py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16 reveal">
+        <span class="text-sky-400 text-sm font-medium uppercase tracking-widest">Built from Scratch</span>
+        <h2 class="font-heading text-3xl md:text-5xl font-bold text-white mt-3">Systems We Built</h2>
+        <p class="text-gray-400 mt-4 max-w-xl mx-auto">Complex business systems engineered for real-world challenges.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 stagger" id="systemsGrid"></div>
+    </div>
+  </section><!-- WHY CHOOSE US -->
+  <section class="bg-white py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16 reveal">
+        <span class="text-sky-500 text-sm font-medium uppercase tracking-widest">Why Us</span>
+        <h2 class="font-heading text-3xl md:text-5xl font-bold text-gray-900 mt-3">Why Choose FIVEM INFOTECH</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 stagger" id="whyGrid"></div>
+    </div>
+  </section><!-- PROCESS -->
+  <section id="process" class="bg-gray-50 py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16 reveal">
+        <span class="text-sky-500 text-sm font-medium uppercase tracking-widest">How We Work</span>
+        <h2 class="font-heading text-3xl md:text-5xl font-bold text-gray-900 mt-3">Our Process</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 stagger" id="processGrid"></div>
+    </div>
+  </section><!-- TESTIMONIALS -->
+  <section class="bg-gray-950 py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16 reveal">
+        <span class="text-sky-400 text-sm font-medium uppercase tracking-widest">Testimonials</span>
+        <h2 class="font-heading text-3xl md:text-5xl font-bold text-white mt-3">What Our Clients Say</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6 stagger" id="testimonialsGrid"></div>
+    </div>
+  </section>
+  <!-- TEAM -->
+  <section id="team" class="bg-white py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16 reveal">
+        <span class="text-sky-500 text-sm font-medium uppercase tracking-widest">Our Team</span>
+        <h2 id="teamTitle" class="font-heading text-3xl md:text-5xl font-bold text-gray-900 mt-3">Meet the Experts</h2>
+        <p class="text-gray-500 mt-4 max-w-xl mx-auto">Seasoned professionals dedicated to building exceptional software
+          solutions.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-6 stagger" id="teamGrid"></div>
+    </div>
+  </section>
+  <!-- Our team end -->
+
+  <!-- CTA -->
+
+  <section id="contact" class="relative overflow-hidden">
+    <div class="hero-bg grid-pattern py-24 md:py-32">
+      <div class="relative z-10 max-w-3xl mx-auto px-6 text-center reveal">
+        <h2 id="ctaHeadline" class="font-heading text-3xl md:text-5xl font-bold text-black mb-6">Let's Build Something
+          Powerful Together</h2>
+        <p class="text-gray-400 text-lg mb-10 max-w-xl mx-auto">Ready to transform your business with technology? Let's
+          talk about your next project.</p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="https://fiveminfotech.com/contact" target="_blank"
+            class="bg-sky-500 hover:bg-sky-400 text-white font-medium px-8 py-4 rounded-lg transition-all btn-glow inline-flex items-center gap-2">
+            Book Consultation <i data-lucide="calendar" style="width:18px;height:18px;"></i> </a> <a
+            href="https://fiveminfotech.com/contact" target="_blank"
+            class="bg-white/5 hover:bg-white/10 text-black border border-white/10 font-medium px-8 py-4 rounded-lg transition-all inline-flex items-center gap-2">
+            Contact Us <i data-lucide="mail" style="width:18px;height:18px;"></i> </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-950 border-t border-white/5 py-16">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-10 mb-12">
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-2 mb-4">
+            <div>
+              <span class="text-white font-heading font-bold text-sm"><img src="/fav.png" width="50px" alt=""></span>
+            </div><span class="text-white font-heading font-semibold text-lg">FIVEM<span
+                class="text-sky-400">INFOTECH</span></span>
+          </div>
+          <p class="text-gray-500 text-sm max-w-sm leading-relaxed">Building smart digital systems that drive real
+            business growth. Custom software, automation, and scalable platforms for forward-thinking businesses.</p>
+        </div>
+        <div>
+          <h4 class="text-white font-medium text-sm mb-4">Quick Links</h4>
+          <div class="space-y-2">
+            <a href="#about" class="text-gray-500 hover:text-gray-300 text-sm block transition-colors">About</a> <a
+              href="#services" class="text-gray-500 hover:text-gray-300 text-sm block transition-colors">Services</a> <a
+              href="#team" class="text-gray-500 hover:text-gray-300 text-sm block transition-colors">Our Team</a> <a
+              href="#portfolio" class="text-gray-500 hover:text-gray-300 text-sm block transition-colors">Portfolio</a>
+            <a href="https://fiveminfotech.com/contact" target="_blank"
+              class="text-gray-500 hover:text-gray-300 text-sm block transition-colors">Contact</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-white font-medium text-sm mb-4">Contact</h4>
+          <div class="space-y-2 text-gray-500 text-sm">
+            <div class="flex items-center gap-2"><i data-lucide="mail" style="width:14px;height:14px;"></i>
+              Contact@fiveminfotech.com
+            </div>
+            <div class="flex items-center gap-2"><i data-lucide="phone" style="width:14px;height:14px;"></i> +91 810 810
+              2342
+            </div>
+            <div class="flex items-center gap-2"><i data-lucide="globe" style="width:14px;height:14px;"></i>
+              fiveminfotech.com
+            </div>
+          </div>
+          <div class="flex gap-3 mt-4">
+            <div
+              class="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center cursor-pointer transition-colors">
+              <a href="https://www.linkedin.com/company/105862421/admin/page-posts/published/"><i data-lucide="linkedin"
+                  style="width:14px;height:14px;color:#94a3b8;"></i></a>
+            </div>
+            <div
+              class="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center cursor-pointer transition-colors">
+              <a href="https://www.facebook.com/fiveminfotech/"><i data-lucide="facebook"
+                  style="width:14px;height:14px;color:#94a3b8;"></i></a>
+            </div>
+            <div
+              class="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center cursor-pointer transition-colors">
+              <a href="https://www.instagram.com/fiveminfotech/"><i data-lucide="instagram"
+                  style="width:14px;height:14px;color:#94a3b8;"></i> </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-white/5 pt-8 text-center">
+        <p class="text-gray-600 text-sm">© 2024 FIVEM INFOTECH. All rights reserved. Built with precision and purpose.
+        </p>
+      </div>
+    </div>
+  </footer>
+  <script>
+    // Load data from data.js
+    const { services, portfolio, systems, whyUs, processSteps, testimonials, team } = siteData;
+
+    const typeColors = { 'E-commerce': 'bg-violet-100 text-violet-700', 'Website': 'bg-sky-100 text-sky-700', 'Platform': 'bg-emerald-100 text-emerald-700', 'CRM': 'bg-amber-100 text-amber-700' };
+    const gradients = [
+      'from-sky-500/40 to-violet-500/40', 'from-violet-500/40 to-pink-500/40', 'from-emerald-500/40 to-sky-500/40',
+      'from-amber-500/40 to-red-500/40', 'from-pink-500/40 to-violet-500/40', 'from-sky-500/10 to-emerald-500/40'
+    ];
+
+    // Render functions
+    function renderServices() {
+      const g = document.getElementById('servicesGrid');
+      g.innerHTML = services.map((s, i) => `
+    <div class="service-card bg-white rounded-xl border border-gray-100 p-6 reveal">
+      <div class="w-11 h-11 rounded-xl bg-gradient-to-br ${gradients[i % gradients.length]} flex items-center justify-center mb-4">
+        <i data-lucide="${s.icon}" style="width:20px;height:20px;color:#0ea5e9;"></i>
+      </div>
+      <h3 class="font-heading font-semibold text-gray-900 mb-2">${s.title}</h3>
+      <p class="text-gray-500 text-sm leading-relaxed">${s.desc}</p>
+    </div>
+  `).join('');
+    }
+
+    function renderPortfolio() {
+      const g = document.getElementById('portfolioGrid');
+      g.innerHTML = portfolio.map((p, i) => `
+    <div class="portfolio-card bg-white rounded-xl border border-gray-100 overflow-hidden relative group reveal block">
+      <div class="h-40 bg-gradient-to-br ${gradients[i % gradients.length]} flex items-center justify-center">
+        <span class="font-heading font-bold text-gray-900/50 text-3xl tracking-tight">${p.name.split(' ').map(w => w[0]).join('').slice(0, 3)}</span>
+      </div>
+      <div class="p-6">
+        <h4 class="font-heading font-semibold text-gray-900 text-base mb-3">
+          ${p.name}
+        </h4>
+        <div class="flex items-center gap-2 mb-3 flex-wrap">
+          <span class="text-xs font-medium px-3 py-1 rounded-full ${typeColors[p.type] || 'bg-gray-100 text-gray-600'}">
+            ${p.type}
+          </span>
+          <span class="text-xs text-gray-500">
+            ${p.industry}
+          </span>
+        </div>
+        <div class="text-xs text-gray-400 truncate mb-4">
+          ${p.url || 'No link available'}
+        </div>
+        <div class="flex gap-2">
+          ${p.url ? `
+            <a
+              href="${p.url}"
+              target="_blank"
+              onclick="event.stopPropagation()"
+              class="flex-1 bg-sky-500 hover:bg-sky-600 text-white text-xs font-medium py-2 rounded-lg text-center transition">
+              Live Demo
+            </a>
+          ` : ''}
+          ${p.pdf ? `
+            <a
+              href="${p.pdf}"
+              target="_blank"
+              onclick="event.stopPropagation()"
+              class="flex-1 border border-gray-300 hover:bg-gray-100 text-gray-700 text-xs font-medium py-2 rounded-lg text-center transition">
+              PDF
+            </a>
+          ` : ''}
+        </div>
+      </div>
+    </div>
+  `).join('');
+    }
+
+    function renderSystems() {
+      const g = document.getElementById('systemsGrid');
+      g.innerHTML = systems.map((s, i) => `
+    <div class="glass rounded-xl p-6 hover:bg-white/[0.06] transition-colors reveal">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-500/20 to-violet-500/20 flex items-center justify-center">
+          <i data-lucide="${s.icon}" style="width:18px;height:18px;color:#38bdf8;"></i>
+        </div>
+        <h3 class="font-heading font-semibold text-white">${s.title}</h3>
+      </div>
+      <div class="space-y-3">
+        <div><span class="text-xs uppercase tracking-wider text-red-400/70 font-medium">Problem</span><p class="text-gray-400 text-sm mt-1">${s.problem}</p></div>
+        <div><span class="text-xs uppercase tracking-wider text-emerald-400/70 font-medium">Solution</span><p class="text-gray-300 text-sm mt-1">${s.solution}</p></div>
+      </div>
+    </div>
+  `).join('');
+    }
+
+    function renderWhy() {
+      const g = document.getElementById('whyGrid');
+      g.innerHTML = whyUs.map((w, i) => `
+    <div class="bg-gray-50 rounded-xl p-6 reveal">
+      <div class="w-11 h-11 rounded-xl bg-gradient-to-br ${gradients[i % gradients.length]} flex items-center justify-center mb-4">
+        <i data-lucide="${w.icon}" style="width:20px;height:20px;color:#0ea5e9;"></i>
+      </div>
+      <h3 class="font-heading font-semibold text-gray-900 mb-2">${w.title}</h3>
+      <p class="text-gray-500 text-sm leading-relaxed">${w.desc}</p>
+    </div>
+  `).join('');
+    }
+
+    function renderProcess() {
+      const g = document.getElementById('processGrid');
+      g.innerHTML = processSteps.map((p, i) => `
+    <div class="process-step bg-white rounded-xl border border-gray-100 p-6 relative overflow-hidden reveal">
+      <span class="absolute top-4 right-4 font-heading text-5xl font-bold text-gray-100">${p.num}</span>
+      <div class="relative">
+        <div class="w-8 h-8 rounded-full bg-sky-500 flex items-center justify-center text-white text-xs font-bold mb-4">${parseInt(p.num)}</div>
+        <h3 class="font-heading font-semibold text-gray-900 mb-2">${p.title}</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">${p.desc}</p>
+      </div>
+    </div>
+  `).join('');
+    }
+
+    function renderTestimonials() {
+      const g = document.getElementById('testimonialsGrid');
+      g.innerHTML = testimonials.map(t => `
+    <div class="glass rounded-xl p-6 reveal">
+      <div class="quote-mark">"</div>
+      <p class="text-gray-300 text-sm leading-relaxed -mt-8 mb-6">${t.text}</p>
+      <div class="flex items-center gap-3 border-t border-white/5 pt-4">
+        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-sky-500 to-violet-500 flex items-center justify-center text-white font-heading font-bold text-sm">${t.name.split(' ').map(w => w[0]).join('')}</div>
+        <div>
+          <div class="text-white text-sm font-medium">${t.name}</div>
+          <div class="text-gray-500 text-xs">${t.role}</div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+    }
+
+    function renderTeam() {
+      const g = document.getElementById('teamGrid');
+      g.innerHTML = team.map((m, i) => `
+    <div class="bg-gray-50 rounded-xl p-6 reveal border border-gray-100">
+      <div class="w-16 h-16 rounded-xl bg-gradient-to-br ${gradients[i % gradients.length]} flex items-center justify-center mb-4 mx-auto">
+        <span class="text-white font-heading font-bold text-2xl">${m.name.split(' ').map(w => w[0]).join('')}</span>
+      </div>
+      <h3 class="font-heading font-semibold text-gray-900 text-center mb-1">${m.name}</h3>
+      <p class="text-sky-600 text-sm text-center font-medium mb-3">${m.designation}</p>
+      <div class="flex items-center justify-center gap-1 text-gray-600 text-xs">
+        <i data-lucide="briefcase" style="width:14px;height:14px;"></i>
+        <span>${m.experience} years experience</span>
+      </div>
+    </div>
+  `).join('');
+    }
+
+    // Render all
+    renderServices();
+    renderPortfolio();
+    renderSystems();
+    renderWhy();
+    renderProcess();
+    renderTestimonials();
+    renderTeam();
+
+    // Init Lucide
+    lucide.createIcons();
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Counter animation
+    let counted = false;
+    const statsObserver = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !counted) {
+        counted = true;
+        document.querySelectorAll('.stat-number').forEach(el => {
+          const target = parseInt(el.dataset.target);
+          let current = 0;
+          const step = Math.max(1, Math.floor(target / 40));
+          const interval = setInterval(() => {
+            current += step;
+            if (current >= target) { current = target; clearInterval(interval); }
+            el.textContent = current + (el.parentElement.querySelector('.text-gray-400')?.textContent.includes('%') ? '%' : '+');
+          }, 30);
+        });
+      }
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.stat-number').forEach(el => statsObserver.observe(el.closest('.glass')));
+
+    // Mobile menu
+    document.getElementById('mobileMenuBtn').addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
+    document.getElementById('mobileMenuClose').addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
+    document.querySelectorAll('.mobile-link').forEach(a => a.addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open')));
+
+    // Element SDK - Load config from data.js
+    const defaultConfig = siteData.config;
+
+    function applyConfig(config) {
+      const c = { ...defaultConfig, ...config };
+      document.getElementById('heroHeadline').textContent = c.hero_headline;
+      document.getElementById('heroSubheadline').textContent = c.hero_subheadline;
+      document.getElementById('aboutTitle').textContent = c.about_title;
+      document.getElementById('ctaHeadline').textContent = c.cta_headline;
+
+      document.documentElement.style.setProperty('--bg', c.background_color);
+      document.documentElement.style.setProperty('--surface', c.surface_color);
+      document.documentElement.style.setProperty('--text', c.text_color);
+      document.documentElement.style.setProperty('--primary', c.primary_action_color);
+      document.documentElement.style.setProperty('--secondary', c.secondary_action_color);
+
+      const headingEls = document.querySelectorAll('.font-heading');
+      headingEls.forEach(el => el.style.fontFamily = `${c.font_family}, Outfit, sans-serif`);
+    }
+
+    window.elementSdk.init({
+      defaultConfig,
+      onConfigChange: async (config) => applyConfig(config),
+      mapToCapabilities: (config) => ({
+        recolorables: [
+          { get: () => config.background_color || defaultConfig.background_color, set: (v) => { config.background_color = v; window.elementSdk.setConfig({ background_color: v }); } },
+          { get: () => config.surface_color || defaultConfig.surface_color, set: (v) => { config.surface_color = v; window.elementSdk.setConfig({ surface_color: v }); } },
+          { get: () => config.text_color || defaultConfig.text_color, set: (v) => { config.text_color = v; window.elementSdk.setConfig({ text_color: v }); } },
+          { get: () => config.primary_action_color || defaultConfig.primary_action_color, set: (v) => { config.primary_action_color = v; window.elementSdk.setConfig({ primary_action_color: v }); } },
+          { get: () => config.secondary_action_color || defaultConfig.secondary_action_color, set: (v) => { config.secondary_action_color = v; window.elementSdk.setConfig({ secondary_action_color: v }); } }
+        ],
+        borderables: [],
+        fontEditable: {
+          get: () => config.font_family || defaultConfig.font_family,
+          set: (v) => { config.font_family = v; window.elementSdk.setConfig({ font_family: v }); }
+        },
+        fontSizeable: {
+          get: () => config.font_size || defaultConfig.font_size,
+          set: (v) => { config.font_size = v; window.elementSdk.setConfig({ font_size: v }); }
+        }
+      }),
+      mapToEditPanelValues: (config) => new Map([
+        ['hero_headline', config.hero_headline || defaultConfig.hero_headline],
+        ['hero_subheadline', config.hero_subheadline || defaultConfig.hero_subheadline],
+        ['about_title', config.about_title || defaultConfig.about_title],
+        ['team_title', config.team_title || defaultConfig.team_title],
+        ['cta_headline', config.cta_headline || defaultConfig.cta_headline]
+      ])
+    });
+  </script>
+  <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'9f0da6cda2f9578d',t:'MTc3Njk1NTUyMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+</body>
+
+</html>
