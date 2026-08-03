@@ -671,8 +671,8 @@
       const g = document.getElementById('portfolioGrid');
       g.innerHTML = portfolio.map((p, i) => `
     <div class="portfolio-card bg-white rounded-xl border border-gray-100 overflow-hidden relative group reveal block">
-      <div class="h-40 bg-gradient-to-br ${gradients[i % gradients.length]} flex items-center justify-center">
-        <span class="font-heading font-bold text-gray-900/50 text-3xl tracking-tight">${p.name.split(' ').map(w => w[0]).join('').slice(0, 3)}</span>
+      <div class="h-40 bg-gradient-to-br ${gradients[i % gradients.length]} flex items-center justify-center p-4">
+        ${p.logo ? `<img src="${p.logo}" alt="${p.name}" class="max-w-full max-h-full object-contain" style="max-width: 120px; max-height: 120px;">` : `<span class="font-heading font-bold text-gray-900/50 text-3xl tracking-tight">${p.name.split(' ').map(w => w[0]).join('').slice(0, 3)}</span>`}
       </div>
       <div class="p-6">
         <h4 class="font-heading font-semibold text-gray-900 text-base mb-3">

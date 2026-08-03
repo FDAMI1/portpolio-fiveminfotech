@@ -40,44 +40,50 @@ const siteData = {
   // Portfolio
   portfolio: [
     // CRM
-    { name: 'CRM', url: 'https://crm.nfskills.com/', industry: 'Institute', type: 'CRM' },
-    { name: 'SRF Power Machine', url: 'https://15-jun-26-gen-front.vercel.app/activity', industry: 'Energy', type: 'CRM' },
-    { name: 'Class Connect', url: 'https://7-7-26-class-connect-front-alpha.vercel.app/login', pdf: '/portfolio/class connect.pdf', industry: 'Education', type: 'CRM' },
+    { name: 'Baker and Co.', logo: '/img/Bakeandcologo.png', url: 'https://www.bakerandco.online/', industry: 'Shipping', type: 'CRM' },
+    { name: 'SRF Power Machine', logo: '/img/SRFlogo.png', url: 'https://15-jun-26-gen-front.vercel.app/activity', industry: 'Energy', type: 'CRM' },
+    { name: 'Class Connect', logo: '/img/class.png', url: 'https://7-7-26-class-connect-front-alpha.vercel.app/login', pdf: '/portfolio/class connect.pdf', industry: 'Education', type: 'CRM' },
+    { name: 'School Ride Connect', logo: '/img/school ride.png', url: 'https://1-7-driver-front.vercel.app/', pdf: '/portfolio/class connect.pdf', industry: 'Transport', type: 'CRM' },
+    { name: 'Plus Veda', logo: '/img/Plus veda.png', url: 'https://www.plusveda.online/login', pdf: '', industry: 'Healthcare', type: 'App' },
 
     // ERP
-    { name: 'Saad Cargo', url: 'https://saad-cargo-front28april.vercel.app/', pdf: '/portfolio/SAAD CARGO.pdf', industry: 'Logistic', type: 'ERP' },
-    { name: 'Goat Link', url: '', pdf: '/portfolio/Goatlink.pre.pdf', industry: 'Livestock', type: 'ERP' },
-    { name: 'ERP Al-Waris', url: 'https://30march-alwaris-front-khaki.vercel.app/login', pdf: '/portfolio/saad-cargo.pdf', industry: 'Real Estate', type: 'Logistic CRM' },
+    { name: 'Saad Cargo', logo: '/img/saadlogo.png', url: 'https://saad-cargo-front28april.vercel.app/', pdf: '/portfolio/SAAD CARGO.pdf', industry: 'Logistic', type: 'ERP' },
+    { name: 'Goat Link', logo: '/img/goat.png', url: '', pdf: '/portfolio/Goatlink.pre.pdf', industry: 'Livestock', type: 'ERP' },
+    { name: 'ERP Al-Waris', logo: '/img/alwaris-logo.png', url: 'https://www.alwarisshippingline.com/',  industry: 'Logistics', type: 'ERP' },
 
     // Platform
-    { name: 'OutVue Ai', url: 'https://www.outvue.io/', industry: 'Marketing', type: 'Platform' },
-    { name: 'A Good Employee', url: 'https://agoodemployee.com', industry: 'HR & Staffing', type: 'Platform' },
-    { name: 'Bay Block', url: 'https://bay-block.com', industry: 'Technology', type: 'Platform' },
+    { name: 'OutVue Ai', logo: '/img/OutVue-Logo.png', url: 'https://www.outvue.io/', industry: 'Artificial Intelligence', type: 'Platform' },
+     { name: 'Reimbursement (Godrej)', logo: '/img/reimb.png', url: 'https://projects.fiveminfotech.com/', industry: 'Corporate', type: 'Platform' },
+     { name: 'Connect Ummah', logo: '/img/connect ummah logo.png', url: 'https://connectummah.org/', industry: 'Community', type: 'Platform' },
+    { name: 'A Good Employee', logo: '/img/good emp.png', url: 'https://agoodemployee.com', industry: 'HR & Staffing', type: 'Platform' },
+    { name: 'Bay Block', logo: '/img/baylogo.png', url: 'https://bay-block.com', industry: 'Technology', type: 'Platform' },
 
     // E-commerce
-    { name: 'AllFreshh', url: 'https://app.allfreshh.com', industry: 'Food & Grocery', type: 'E-commerce' },
-    { name: 'Pawan Jewellers', url: 'https://pawanjewellers.co.uk', industry: 'Jewellery', type: 'E-commerce' },
-    { name: 'Commercial Linen', url: 'https://commerciallinen.co.uk', industry: 'Textiles', type: 'E-commerce' },
-    { name: 'Bink Inks', url: 'https://binkinks.com', industry: 'Printing', type: 'E-commerce' },
-    { name: 'Vitamin Planet', url: 'https://vitaminplanet.co.uk', industry: 'Health', type: 'E-commerce' },
-    { name: 'Salon Supplies Direct', url: 'https://salonsuppliesdirect.com', industry: 'Beauty', type: 'E-commerce' },
-    { name: 'Bejouled', url: 'https://bejouled.co.uk', industry: 'Jewellery', type: 'E-commerce' },
-    { name: 'HMCO Fashion', url: 'https://hmcofashion.in', industry: 'Fashion', type: 'E-commerce' },
+    { name: 'AllFreshh', logo: '/img/All  fresh.png', url: 'https://app.allfreshh.com', industry: 'Food & Grocery', type: 'E-commerce' },
+    { name: 'Pawan Jewellers', logo: '/img/pawanjeweller.png', url: 'https://pawanjewellers.co.uk', industry: 'Jewellery', type: 'E-commerce' },
+    { name: 'Commercial Linen', logo: '/img/commerciallinen.png', url: 'https://commerciallinen.co.uk', industry: 'Textiles', type: 'E-commerce' },
+
+    { name: 'Vitamin Planet', logo: '/img/vitamin planet.png', url: 'https://vitaminplanet.co.uk', industry: 'Health', type: 'E-commerce' },
+    { name: 'Salon Supplies Direct', logo: '/img/salon-supplier.png', url: 'https://salonsuppliesdirect.com', industry: 'Beauty', type: 'E-commerce' },
+    { name: 'Bejouled', logo: '/img/bejouled_logo.png', url: 'https://bejouled.co.uk', industry: 'Jewellery', type: 'E-commerce' },
+
 
     // App
-    { name: 'AshShifa', url: 'https://play.google.com/store/apps/details?id=com.ashshifa.app&hl=en_IN', pdf: '/portfolio/ASH SHIFA. DOC.pdf', industry: 'Healthcare', type: 'APP' },
+    { name: 'AshShifa', logo: '/img/Ashshifa.png', url: 'https://play.google.com/store/apps/details?id=com.ashshifa.app&hl=en_IN', pdf: '/portfolio/ASH SHIFA. DOC.pdf', industry: 'Healthcare', type: 'APP' },
 
     // Website
-    { name: 'SNS Luxury Properties', url: 'https://snsluxuryproperties.com', industry: 'Real Estate', type: 'Website' },
-    { name: 'RYL Pearl', url: 'https://rylpearl.net', industry: 'Lifestyle', type: 'Website' },
-    { name: 'Shoreline Xpress', url: 'https://shorelinexpress.com', industry: 'Logistics', type: 'Website' },
-    { name: 'NF Skills', url: 'https://nfskills-landing-page-front.vercel.app/', industry: 'Institute', type: 'Website' },
-    { name: 'Fivem Infotech', url: 'https://fiveminfotech.com', industry: 'Technology', type: 'Website' },
-    { name: 'Autotronics', url: 'https://autotronics.co.uk', industry: 'Automotive', type: 'Website' },
-    { name: 'Alpha Dental Clinic', url: 'https://alphadentalclinic.ca', industry: 'Healthcare', type: 'Website' },
-    { name: 'Arizona Horses', url: 'https://arizona-horses.com', industry: 'Equestrian', type: 'Website' },
-    { name: 'Sombrero Horses', url: 'https://sombrerohorses.com', industry: 'Equestrian', type: 'Website' },
-    { name: 'Seven Seas Enterprises', url: 'https://sevenseasenterprises.co.in', industry: 'Trading', type: 'Website' }
+    { name: 'SNS Luxury Properties', logo: '/img/sns.png', url: 'https://snsluxuryproperties.com', industry: 'Real Estate', type: 'Website' },
+    { name: 'RYL Pearl',  url: 'https://rylpearl.net', industry: 'Lifestyle', type: 'Website' },
+    { name: 'Shoreline Xpress', logo: '/img/shoreline.png', url: 'https://shorelinexpress.com', industry: 'Logistics', type: 'Website' },
+    { name: 'NF Skills', logo: '/img/nfskills.png', url: 'https://nfskills-landing-page-front.vercel.app/', industry: 'Institute', type: 'Website' },
+    { name: 'Khayyat Shamsan Al Arab', logo: '/img/khayyat Shamsan.png', url: 'https://khayyat-shamsan-al-arab.vercel.app/', industry: 'Construction', type: 'Website' },
+    { name: 'Saum Studio', logo: '/img/saum studio.png', pdf: 'https://design.saumstudio.com/', url: 'https://saumstudio.com/', industry: 'Design Agency', type: 'Website' },
+    { name: 'Linu Sea Food', logo: '/img/linu sea food.png', url: 'https://linuseafoods.com/', industry: 'Seafood', type: 'Website' },
+    { name: 'Autotronics', logo: '/img/autotronics.png', url: 'https://autotronics.co.uk', industry: 'Automotive', type: 'Website' },
+    { name: 'Alpha Dental Clinic',  url: 'https://alphadentalclinic.ca', industry: 'Healthcare', type: 'Website' },
+    { name: 'Arizona Horses', logo: '/img/arizona-horses-logo.png', url: 'https://arizona-horses.com', industry: 'Equestrian', type: 'Website' },
+    { name: 'Sombrero Horses', logo: '/img/sombrerohorses.png', url: 'https://sombrerohorses.com', industry: 'Equestrian', type: 'Website' },
+    { name: 'Seven Seas Enterprises', logo: '/img/sevenseas-logo.png', url: 'https://sevenseasenterprises.co.in', industry: 'Trading', type: 'Website' }
   ],
 
   // Systems
