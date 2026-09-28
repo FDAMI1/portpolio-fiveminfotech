@@ -43,12 +43,12 @@ const siteData = {
     { name: 'Baker and Co.', logo: '/img/Bakeandcologo.png', url: 'https://www.bakerandco.online/', industry: 'Shipping', type: 'CRM' },
     { name: 'SRF Power Machine', logo: '/img/SRFlogo.png', url: 'https://15-jun-26-gen-front.vercel.app/activity', industry: 'Energy', type: 'CRM' },
     { name: 'Class Connect', logo: '/img/class.png', url: 'https://7-7-26-class-connect-front-alpha.vercel.app/login', pdf: '/portfolio/class connect.pdf', industry: 'Education', type: 'CRM' },
-    { name: 'School Ride Connect', logo: '/img/school ride.png', url: 'https://1-7-driver-front.vercel.app/', pdf: '/portfolio/class connect.pdf', industry: 'Transport', type: 'CRM' },
-    { name: 'Plus Veda', logo: '/img/Plus veda.png', url: 'https://www.plusveda.online/login', pdf: '', industry: 'Healthcare', type: 'App' },
+    { name: 'Skool Yatra', logo: '/img/school ride.png', url: 'https://1-7-driver-front.vercel.app/', pdf: '/portfolio/class connect.pdf', industry: 'Transport', type: 'CRM' },
+    { name: 'Plus Veda', logo: '/img/Plus veda.png', url: 'https://www.plusveda.online', pdf: '/portfolio/Plusveda-Project-Document.pdf', industry: 'Healthcare', type: 'App' },
 
     // ERP
-    { name: 'Saad Cargo', logo: '/img/saadlogo.png', url: 'https://saad-cargo-front28april.vercel.app/', pdf: '/portfolio/SAAD CARGO.pdf', industry: 'Logistic', type: 'ERP' },
-    { name: 'Goat Link', logo: '/img/goat.png', url: '', pdf: '/portfolio/Goatlink.pre.pdf', industry: 'Livestock', type: 'ERP' },
+    { name: 'Bharat Railgo', logo: '/img/saadlogo.png', url: 'https://saad-cargo-front28april.vercel.app/', pdf: '/portfolio/SAAD CARGO.pdf', industry: 'Logistic', type: 'ERP' },
+    { name: 'Rashtra Farm', logo: '/img/goat.png', url: '', pdf: '/portfolio/RastraFarm.pre.pdf', industry: 'Livestock', type: 'ERP' },
     { name: 'ERP Al-Waris', logo: '/img/alwaris-logo.png', url: 'https://www.alwarisshippingline.com/',  industry: 'Logistics', type: 'ERP' },
 
     // Platform
