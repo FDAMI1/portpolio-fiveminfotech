@@ -7,6 +7,9 @@ All content for your portfolio website is now centralized in **`data.js`**. You 
 - `index.html` - Website structure and styling (no content data here)
 - `data.js` - All content, copy, and configuration (UPDATE THIS)
 - `DATA_GUIDE.md` - This guide
+- `styles.css` - Prebuilt Tailwind CSS (generated, don't edit by hand)
+- `tailwind.config.js` - Tailwind config used to build `styles.css`
+- `robots.txt` / `sitemap.xml` - Search engine files (update `lastmod` in sitemap after big changes)
 
 ## How to Update Content
 
@@ -29,6 +32,7 @@ Edit the `portfolio` array:
 portfolio: [
   { 
     name: 'Project Name',
+    logo: '/img/project-name.webp',    // Optional: see "Adding Logos" below
     url: 'https://project-url.com',    // Live demo URL
     industry: 'Industry Category',
     type: 'E-commerce',                // Type: Website, E-commerce, CRM, ERP, Platform, APP
@@ -129,6 +133,17 @@ config: {
   primary_action_color: '#0ea5e9',
   // All configuration options...
 }
+```
+
+## Adding Logos
+Keep the site fast: logos display at 120px, so resize to max 240px and save as `.webp`
+with a lowercase, hyphenated filename (no spaces), e.g. `/img/my-client.webp`.
+
+## Changing Styles (Tailwind)
+`styles.css` is prebuilt. Content edits in `data.js` need nothing extra, but if you add
+**new Tailwind classes** to `index.html`, rebuild once:
+```bash
+npx tailwindcss@3.4.17 -o styles.css --minify
 ```
 
 ## Icon Reference

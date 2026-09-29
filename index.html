@@ -1,29 +1,71 @@
 <!doctype html>
-<html lang="en" class="h-full">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FIVEM INFOTECH</title>
-  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
-  <script src="/_sdk/element_sdk.js"></script>
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&amp;family=Outfit:wght@300;400;500;600;700;800&amp;display=swap"
-    rel="stylesheet">
-  <link rel="icon" href="/fav.png">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            heading: ['Outfit', 'sans-serif'],
-            body: ['DM Sans', 'sans-serif']
-          }
-        }
+  <title>FIVEM INFOTECH | Custom Software, CRM, ERP & eCommerce Development</title>
+  <meta name="description"
+    content="FIVEM INFOTECH builds custom software, CRM, ERP, eCommerce, EdTech and healthcare platforms. Explore 30+ projects delivered for businesses across India, the UK, the UAE and Canada.">
+  <link rel="canonical" href="https://portfolio.fiveminfotech.com/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#0a0a0f">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="FIVEM INFOTECH">
+  <meta property="og:url" content="https://portfolio.fiveminfotech.com/">
+  <meta property="og:title" content="FIVEM INFOTECH | Custom Software, CRM, ERP & eCommerce Development">
+  <meta property="og:description"
+    content="Custom software, automation and scalable platforms. See the CRM, ERP, eCommerce and web projects we've delivered.">
+  <meta property="og:image" content="https://portfolio.fiveminfotech.com/fav.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="FIVEM INFOTECH | Custom Software, CRM, ERP & eCommerce Development">
+  <meta name="twitter:description"
+    content="Custom software, automation and scalable platforms. See the CRM, ERP, eCommerce and web projects we've delivered.">
+  <meta name="twitter:image" content="https://portfolio.fiveminfotech.com/fav.png">
+  <link rel="icon" href="/fav.png" type="image/png">
+  <link rel="apple-touch-icon" href="/fav.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://fiveminfotech.com/#organization",
+        "name": "FIVEM INFOTECH",
+        "url": "https://fiveminfotech.com/",
+        "logo": "https://portfolio.fiveminfotech.com/fav.png",
+        "email": "Contact@fiveminfotech.com",
+        "telephone": "+91-810-810-2342",
+        "description": "Research-driven software development company specializing in custom business software, CRM, ERP, eCommerce and automation systems.",
+        "sameAs": [
+          "https://www.linkedin.com/company/105862421/",
+          "https://www.facebook.com/fiveminfotech/",
+          "https://www.instagram.com/fiveminfotech/"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://portfolio.fiveminfotech.com/#website",
+        "url": "https://portfolio.fiveminfotech.com/",
+        "name": "FIVEM INFOTECH Portfolio",
+        "publisher": { "@id": "https://fiveminfotech.com/#organization" }
       }
-    }
+    ]
+  }
   </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&amp;family=Outfit:wght@600;700&amp;display=swap">
+  <link rel="stylesheet" media="print" onload="this.media='all'"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&amp;family=Outfit:wght@600;700&amp;display=swap">
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&amp;family=Outfit:wght@600;700&amp;display=swap">
+  </noscript>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js" defer></script>
+  <script src="/data.js" defer></script>
   <style>
     html {
       scroll-behavior: smooth;
@@ -263,23 +305,37 @@
       background: #1e293b;
       border-radius: 3px;
     }
-  </style>
-  <style>
-    body {
-      box-sizing: border-box;
+
+    /* Decorative step number, kept out of the accessibility tree */
+    .step-num::after {
+      content: attr(data-num);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+      .hero-bg::before {
+        animation: none;
+      }
     }
   </style>
-  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
-  <script src="/data.js" type="text/javascript"></script>
 </head>
 
-<body class="h-full w-full bg-white text-gray-900 overflow-auto">
+<body class="bg-white text-gray-900">
   <!-- NAV -->
   <nav id="mainNav" class="fixed top-0 left-0 right-0 z-50 nav-blur transition-all duration-300">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
       <a href="#hero" class="flex items-center gap-2">
         <div class="">
-          <span class="text-white font-heading font-bold text-sm"><img width="40px" src="/fav.png" alt=""></span>
+          <span class="text-white font-heading font-bold text-sm"><img width="40" height="40" src="/fav.png" alt=""></span>
         </div><span class="text-white font-heading font-semibold text-lg tracking-tight">FIVEM<span
             class="text-sky-400">INFOTECH</span></span>
       </a>
@@ -290,8 +346,8 @@
           class="text-gray-400 hover:text-white text-sm transition-colors">Systems</a> <a href="#process"
           class="text-gray-400 hover:text-white text-sm transition-colors">Process</a>
         <a href="#team" class="text-gray-400 hover:text-white text-sm transition-colors">Our Team</a> <a
-          href="https://fiveminfotech.com/contact" target="_blank"
-          class="bg-sky-500 hover:bg-sky-400 text-white text-sm font-medium px-5 py-2.5 rounded-lg transition-colors btn-glow">Get
+          href="https://fiveminfotech.com/contact" target="_blank" rel="noopener"
+          class="bg-sky-700 hover:bg-sky-600 text-white text-sm font-medium px-5 py-2.5 rounded-lg transition-colors btn-glow">Get
           in Touch</a>
       </div><button id="mobileMenuBtn" class="md:hidden text-white" aria-label="Open menu"> <i data-lucide="menu"
           style="width:24px;height:24px;"></i> </button>
@@ -307,62 +363,64 @@
         href="#portfolio" class="text-gray-300 hover:text-white text-lg font-medium mobile-link">Portfolio</a> <a
         href="#systems" class="text-gray-300 hover:text-white text-lg font-medium mobile-link">Systems</a> <a
         href="#process" class="text-gray-300 hover:text-white text-lg font-medium mobile-link">Process</a> <a
-        href="#team" class="text-gray-400 hover:text-white text-sm transition-colors">Our Team</a> <a
-        href="https://fiveminfotech.com/contact" target="_blank"
-        class="bg-sky-500 text-white text-center py-3 rounded-lg font-medium mt-4 mobile-link">Get in Touch</a>
+        href="#team" class="text-gray-300 hover:text-white text-lg font-medium mobile-link">Our Team</a> <a
+        href="https://fiveminfotech.com/contact" target="_blank" rel="noopener"
+        class="bg-sky-700 text-white text-center py-3 rounded-lg font-medium mt-4 mobile-link">Get in Touch</a>
     </div>
-  </div><!-- HERO -->
-  <section id="hero" class="hero-bg grid-pattern relative min-h-[100%] flex items-center">
+  </div>
+  <main>
+  <!-- HERO -->
+  <section id="hero" class="hero-bg grid-pattern relative min-h-screen flex items-center">
     <div class="relative z-10 max-w-7xl mx-auto px-6 py-32 md:py-40">
       <div class="max-w-3xl">
         <div
-          class="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 mb-8 reveal">
+          class="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 mb-8">
           <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> <span
-            class="text-gray-400 text-sm">Trusted by businesses worldwide</span>
+            class="text-gray-600 text-sm">Trusted by businesses worldwide</span>
         </div>
         <h1 id="heroHeadline"
-          class="font-heading text-4xl md:text-6xl lg:text-7xl font-bold text-black leading-[1.1] tracking-tight mb-6 reveal">
+          class="font-heading text-4xl md:text-6xl lg:text-7xl font-bold text-black leading-[1.1] tracking-tight mb-6">
           Building Smart Digital Systems That Drive Real Business Growth</h1>
-        <p id="heroSubheadline" class="text-gray-400 text-lg md:text-xl max-w-xl mb-10 leading-relaxed reveal">Custom
+        <p id="heroSubheadline" class="text-gray-600 text-lg md:text-xl max-w-xl mb-10 leading-relaxed">Custom
           Software • Automation • Scalable Platforms</p>
-        <div class="flex flex-wrap gap-4 reveal">
+        <div class="flex flex-wrap gap-4">
           <a href="#portfolio"
-            class="bg-sky-500 hover:bg-sky-400 text-white font-medium px-7 py-3.5 rounded-lg transition-all btn-glow inline-flex items-center gap-2">
+            class="bg-sky-700 hover:bg-sky-600 text-white font-medium px-7 py-3.5 rounded-lg transition-all btn-glow inline-flex items-center gap-2">
             View Our Work <i data-lucide="arrow-right" style="width:18px;height:18px;"></i> </a> <a href="#contact"
-            class="bg-white/5 hover:bg-white/10 text-black border border-white/10 font-medium px-7 py-3.5 rounded-lg transition-all inline-flex items-center gap-2">
+            class="bg-white/5 hover:bg-white/10 text-black border border-black/10 font-medium px-7 py-3.5 rounded-lg transition-all inline-flex items-center gap-2">
             Free Consultation <i data-lucide="message-circle" style="width:18px;height:18px;"></i> </a>
         </div>
       </div><!-- Stats bar -->
-      <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 reveal">
+      <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6">
         <div class="glass rounded-xl p-5 text-center">
           <div class="text-3xl font-heading font-bold text-black stat-number" data-target="50">
-            0
+            50+
           </div>
-          <div class="text-sm text-gray-400 mt-1">
+          <div class="text-sm text-gray-600 mt-1">
             Projects Delivered
           </div>
         </div>
         <div class="glass rounded-xl p-5 text-center">
           <div class="text-3xl font-heading font-bold text-black stat-number" data-target="8">
-            0
+            8+
           </div>
-          <div class="text-sm text-gray-400 mt-1">
+          <div class="text-sm text-gray-600 mt-1">
             Industries Served
           </div>
         </div>
         <div class="glass rounded-xl p-5 text-center">
           <div class="text-3xl font-heading font-bold text-black stat-number" data-target="98">
-            0
+            98%
           </div>
-          <div class="text-sm text-gray-400 mt-1">
+          <div class="text-sm text-gray-600 mt-1">
             % On-Time Delivery
           </div>
         </div>
         <div class="glass rounded-xl p-5 text-center">
           <div class="text-3xl font-heading font-bold text-black stat-number" data-target="5">
-            0
+            5+
           </div>
-          <div class="text-sm text-gray-400 mt-1">
+          <div class="text-sm text-gray-600 mt-1">
             Years of Excellence
           </div>
         </div>
@@ -392,7 +450,7 @@
                 <div class="text-white font-medium text-sm">
                   Highest Confidentiality Standards
                 </div>
-                <div class="text-gray-500 text-sm">
+                <div class="text-gray-400 text-sm">
                   Your data, ideas, and business logic stay exclusively yours.
                 </div>
               </div>
@@ -405,7 +463,7 @@
                 <div class="text-white font-medium text-sm">
                   On-Time, Every Time
                 </div>
-                <div class="text-gray-500 text-sm">
+                <div class="text-gray-400 text-sm">
                   We deliver what we promise — no excuses, no delays.
                 </div>
               </div>
@@ -418,7 +476,7 @@
                 <div class="text-white font-medium text-sm">
                   Research-First Approach
                 </div>
-                <div class="text-gray-500 text-sm">
+                <div class="text-gray-400 text-sm">
                   We research, optimize, then build — never the other way around.
                 </div>
               </div>
@@ -452,7 +510,7 @@
                   <div class="text-sky-400 font-heading font-bold text-lg">
                     99%
                   </div>
-                  <div class="text-gray-500 text-xs">
+                  <div class="text-gray-400 text-xs">
                     Uptime
                   </div>
                 </div>
@@ -460,7 +518,7 @@
                   <div class="text-violet-400 font-heading font-bold text-lg">
                     A+
                   </div>
-                  <div class="text-gray-500 text-xs">
+                  <div class="text-gray-400 text-xs">
                     Security
                   </div>
                 </div>
@@ -468,7 +526,7 @@
                   <div class="text-emerald-400 font-heading font-bold text-lg">
                     Fast
                   </div>
-                  <div class="text-gray-500 text-xs">
+                  <div class="text-gray-400 text-xs">
                     Delivery
                   </div>
                 </div>
@@ -488,7 +546,7 @@
   <section id="services" class="bg-white py-24 md:py-32">
     <div class="max-w-7xl mx-auto px-6">
       <div class="text-center mb-16 reveal">
-        <span class="text-sky-500 text-sm font-medium uppercase tracking-widest">What We Do</span>
+        <span class="text-sky-700 text-sm font-medium uppercase tracking-widest">What We Do</span>
         <h2 class="font-heading text-3xl md:text-5xl font-bold text-gray-900 mt-3">Services We Offer</h2>
         <p class="text-gray-500 mt-4 max-w-xl mx-auto">End-to-end technology solutions tailored for your business
           growth.</p>
@@ -500,7 +558,7 @@
   <section id="portfolio" class="bg-gray-50 py-24 md:py-32">
     <div class="max-w-7xl mx-auto px-6">
       <div class="text-center mb-16 reveal">
-        <span class="text-sky-500 text-sm font-medium uppercase tracking-widest">Our Work</span>
+        <span class="text-sky-700 text-sm font-medium uppercase tracking-widest">Our Work</span>
         <h2 class="font-heading text-3xl md:text-5xl font-bold text-gray-900 mt-3">Portfolio</h2>
         <p class="text-gray-500 mt-4 max-w-xl mx-auto">A selection of projects we've delivered across industries.</p>
       </div>
@@ -521,7 +579,7 @@
   <section class="bg-white py-24 md:py-32">
     <div class="max-w-7xl mx-auto px-6">
       <div class="text-center mb-16 reveal">
-        <span class="text-sky-500 text-sm font-medium uppercase tracking-widest">Why Us</span>
+        <span class="text-sky-700 text-sm font-medium uppercase tracking-widest">Why Us</span>
         <h2 class="font-heading text-3xl md:text-5xl font-bold text-gray-900 mt-3">Why Choose FIVEM INFOTECH</h2>
       </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 stagger" id="whyGrid"></div>
@@ -530,7 +588,7 @@
   <section id="process" class="bg-gray-50 py-24 md:py-32">
     <div class="max-w-7xl mx-auto px-6">
       <div class="text-center mb-16 reveal">
-        <span class="text-sky-500 text-sm font-medium uppercase tracking-widest">How We Work</span>
+        <span class="text-sky-700 text-sm font-medium uppercase tracking-widest">How We Work</span>
         <h2 class="font-heading text-3xl md:text-5xl font-bold text-gray-900 mt-3">Our Process</h2>
       </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 stagger" id="processGrid"></div>
@@ -549,7 +607,7 @@
   <section id="team" class="bg-white py-24 md:py-32">
     <div class="max-w-7xl mx-auto px-6">
       <div class="text-center mb-16 reveal">
-        <span class="text-sky-500 text-sm font-medium uppercase tracking-widest">Our Team</span>
+        <span class="text-sky-700 text-sm font-medium uppercase tracking-widest">Our Team</span>
         <h2 id="teamTitle" class="font-heading text-3xl md:text-5xl font-bold text-gray-900 mt-3">Meet the Experts</h2>
         <p class="text-gray-500 mt-4 max-w-xl mx-auto">Seasoned professionals dedicated to building exceptional software
           solutions.</p>
@@ -566,19 +624,20 @@
       <div class="relative z-10 max-w-3xl mx-auto px-6 text-center reveal">
         <h2 id="ctaHeadline" class="font-heading text-3xl md:text-5xl font-bold text-black mb-6">Let's Build Something
           Powerful Together</h2>
-        <p class="text-gray-400 text-lg mb-10 max-w-xl mx-auto">Ready to transform your business with technology? Let's
+        <p class="text-gray-600 text-lg mb-10 max-w-xl mx-auto">Ready to transform your business with technology? Let's
           talk about your next project.</p>
         <div class="flex flex-wrap justify-center gap-4">
-          <a href="https://fiveminfotech.com/contact" target="_blank"
-            class="bg-sky-500 hover:bg-sky-400 text-white font-medium px-8 py-4 rounded-lg transition-all btn-glow inline-flex items-center gap-2">
+          <a href="https://fiveminfotech.com/contact" target="_blank" rel="noopener"
+            class="bg-sky-700 hover:bg-sky-600 text-white font-medium px-8 py-4 rounded-lg transition-all btn-glow inline-flex items-center gap-2">
             Book Consultation <i data-lucide="calendar" style="width:18px;height:18px;"></i> </a> <a
-            href="https://fiveminfotech.com/contact" target="_blank"
-            class="bg-white/5 hover:bg-white/10 text-black border border-white/10 font-medium px-8 py-4 rounded-lg transition-all inline-flex items-center gap-2">
+            href="https://fiveminfotech.com/contact" target="_blank" rel="noopener"
+            class="bg-white/5 hover:bg-white/10 text-black border border-black/10 font-medium px-8 py-4 rounded-lg transition-all inline-flex items-center gap-2">
             Contact Us <i data-lucide="mail" style="width:18px;height:18px;"></i> </a>
         </div>
       </div>
     </div>
   </section>
+  </main>
 
   <!-- FOOTER -->
   <footer class="bg-gray-950 border-t border-white/5 py-16">
@@ -587,27 +646,27 @@
         <div class="md:col-span-2">
           <div class="flex items-center gap-2 mb-4">
             <div>
-              <span class="text-white font-heading font-bold text-sm"><img src="/fav.png" width="50px" alt=""></span>
+              <span class="text-white font-heading font-bold text-sm"><img src="/fav.png" width="50" height="50" alt="" loading="lazy"></span>
             </div><span class="text-white font-heading font-semibold text-lg">FIVEM<span
                 class="text-sky-400">INFOTECH</span></span>
           </div>
-          <p class="text-gray-500 text-sm max-w-sm leading-relaxed">Building smart digital systems that drive real
+          <p class="text-gray-400 text-sm max-w-sm leading-relaxed">Building smart digital systems that drive real
             business growth. Custom software, automation, and scalable platforms for forward-thinking businesses.</p>
         </div>
         <div>
-          <h4 class="text-white font-medium text-sm mb-4">Quick Links</h4>
+          <h2 class="text-white font-medium text-sm mb-4">Quick Links</h2>
           <div class="space-y-2">
-            <a href="#about" class="text-gray-500 hover:text-gray-300 text-sm block transition-colors">About</a> <a
-              href="#services" class="text-gray-500 hover:text-gray-300 text-sm block transition-colors">Services</a> <a
-              href="#team" class="text-gray-500 hover:text-gray-300 text-sm block transition-colors">Our Team</a> <a
-              href="#portfolio" class="text-gray-500 hover:text-gray-300 text-sm block transition-colors">Portfolio</a>
-            <a href="https://fiveminfotech.com/contact" target="_blank"
-              class="text-gray-500 hover:text-gray-300 text-sm block transition-colors">Contact</a>
+            <a href="#about" class="text-gray-400 hover:text-gray-200 text-sm block transition-colors">About</a> <a
+              href="#services" class="text-gray-400 hover:text-gray-200 text-sm block transition-colors">Services</a> <a
+              href="#team" class="text-gray-400 hover:text-gray-200 text-sm block transition-colors">Our Team</a> <a
+              href="#portfolio" class="text-gray-400 hover:text-gray-200 text-sm block transition-colors">Portfolio</a>
+            <a href="https://fiveminfotech.com/contact" target="_blank" rel="noopener"
+              class="text-gray-400 hover:text-gray-200 text-sm block transition-colors">Contact</a>
           </div>
         </div>
         <div>
-          <h4 class="text-white font-medium text-sm mb-4">Contact</h4>
-          <div class="space-y-2 text-gray-500 text-sm">
+          <h2 class="text-white font-medium text-sm mb-4">Contact</h2>
+          <div class="space-y-2 text-gray-400 text-sm">
             <div class="flex items-center gap-2"><i data-lucide="mail" style="width:14px;height:14px;"></i>
               Contact@fiveminfotech.com
             </div>
@@ -619,31 +678,26 @@
             </div>
           </div>
           <div class="flex gap-3 mt-4">
-            <div
-              class="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center cursor-pointer transition-colors">
-              <a href="https://www.linkedin.com/company/105862421/admin/page-posts/published/"><i data-lucide="linkedin"
-                  style="width:14px;height:14px;color:#94a3b8;"></i></a>
-            </div>
-            <div
-              class="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center cursor-pointer transition-colors">
-              <a href="https://www.facebook.com/fiveminfotech/"><i data-lucide="facebook"
-                  style="width:14px;height:14px;color:#94a3b8;"></i></a>
-            </div>
-            <div
-              class="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center cursor-pointer transition-colors">
-              <a href="https://www.instagram.com/fiveminfotech/"><i data-lucide="instagram"
-                  style="width:14px;height:14px;color:#94a3b8;"></i> </a>
-            </div>
+            <a href="https://www.linkedin.com/company/105862421/" target="_blank" rel="noopener" aria-label="FIVEM INFOTECH on LinkedIn"
+              class="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors"><i
+                data-lucide="linkedin" style="width:14px;height:14px;color:#94a3b8;"></i></a>
+            <a href="https://www.facebook.com/fiveminfotech/" target="_blank" rel="noopener" aria-label="FIVEM INFOTECH on Facebook"
+              class="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors"><i
+                data-lucide="facebook" style="width:14px;height:14px;color:#94a3b8;"></i></a>
+            <a href="https://www.instagram.com/fiveminfotech/" target="_blank" rel="noopener" aria-label="FIVEM INFOTECH on Instagram"
+              class="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors"><i
+                data-lucide="instagram" style="width:14px;height:14px;color:#94a3b8;"></i></a>
           </div>
         </div>
       </div>
       <div class="border-t border-white/5 pt-8 text-center">
-        <p class="text-gray-600 text-sm">© 2024 FIVEM INFOTECH. All rights reserved. Built with precision and purpose.
+        <p class="text-gray-400 text-sm">© 2024 FIVEM INFOTECH. All rights reserved. Built with precision and purpose.
         </p>
       </div>
     </div>
   </footer>
   <script>
+    document.addEventListener('DOMContentLoaded', () => {
     // Load data from data.js
     const { services, portfolio, systems, whyUs, processSteps, testimonials, team } = siteData;
 
@@ -672,12 +726,12 @@
       g.innerHTML = portfolio.map((p, i) => `
     <div class="portfolio-card bg-white rounded-xl border border-gray-100 overflow-hidden relative group reveal block">
       <div class="h-40 bg-gradient-to-br ${gradients[i % gradients.length]} flex items-center justify-center p-4">
-        ${p.logo ? `<img src="${p.logo}" alt="${p.name}" class="max-w-full max-h-full object-contain" style="max-width: 120px; max-height: 120px;">` : `<span class="font-heading font-bold text-gray-900/50 text-3xl tracking-tight">${p.name.split(' ').map(w => w[0]).join('').slice(0, 3)}</span>`}
+        ${p.logo ? `<img src="${p.logo}" alt="${p.name} logo" width="120" height="120" loading="lazy" decoding="async" class="max-w-full max-h-full object-contain" style="max-width: 120px; max-height: 120px;">` : `<span class="font-heading font-bold text-gray-900/50 text-3xl tracking-tight">${p.name.split(' ').map(w => w[0]).join('').slice(0, 3)}</span>`}
       </div>
       <div class="p-6">
-        <h4 class="font-heading font-semibold text-gray-900 text-base mb-3">
+        <h3 class="font-heading font-semibold text-gray-900 text-base mb-3">
           ${p.name}
-        </h4>
+        </h3>
         <div class="flex items-center gap-2 mb-3 flex-wrap">
           <span class="text-xs font-medium px-3 py-1 rounded-full ${typeColors[p.type] || 'bg-gray-100 text-gray-600'}">
             ${p.type}
@@ -686,23 +740,23 @@
             ${p.industry}
           </span>
         </div>
-        <div class="text-xs text-gray-400 truncate mb-4">
+        <div class="text-xs text-gray-500 truncate mb-4">
           ${p.url || 'No link available'}
         </div>
         <div class="flex gap-2">
           ${p.url ? `
             <a
               href="${p.url}"
-              target="_blank"
+              target="_blank" rel="noopener"
               onclick="event.stopPropagation()"
-              class="flex-1 bg-sky-500 hover:bg-sky-600 text-white text-xs font-medium py-2 rounded-lg text-center transition">
+              class="flex-1 bg-sky-700 hover:bg-sky-800 text-white text-xs font-medium py-2 rounded-lg text-center transition">
               Live Demo
             </a>
           ` : ''}
           ${p.pdf ? `
             <a
               href="${p.pdf}"
-              target="_blank"
+              target="_blank" rel="noopener"
               onclick="event.stopPropagation()"
               class="flex-1 border border-gray-300 hover:bg-gray-100 text-gray-700 text-xs font-medium py-2 rounded-lg text-center transition">
               PDF
@@ -725,8 +779,8 @@
         <h3 class="font-heading font-semibold text-white">${s.title}</h3>
       </div>
       <div class="space-y-3">
-        <div><span class="text-xs uppercase tracking-wider text-red-400/70 font-medium">Problem</span><p class="text-gray-400 text-sm mt-1">${s.problem}</p></div>
-        <div><span class="text-xs uppercase tracking-wider text-emerald-400/70 font-medium">Solution</span><p class="text-gray-300 text-sm mt-1">${s.solution}</p></div>
+        <div><span class="text-xs uppercase tracking-wider text-red-400 font-medium">Problem</span><p class="text-gray-400 text-sm mt-1">${s.problem}</p></div>
+        <div><span class="text-xs uppercase tracking-wider text-emerald-400 font-medium">Solution</span><p class="text-gray-300 text-sm mt-1">${s.solution}</p></div>
       </div>
     </div>
   `).join('');
@@ -749,9 +803,9 @@
       const g = document.getElementById('processGrid');
       g.innerHTML = processSteps.map((p, i) => `
     <div class="process-step bg-white rounded-xl border border-gray-100 p-6 relative overflow-hidden reveal">
-      <span class="absolute top-4 right-4 font-heading text-5xl font-bold text-gray-100">${p.num}</span>
+      <span class="step-num absolute top-4 right-4 font-heading text-5xl font-bold text-gray-100" data-num="${p.num}" aria-hidden="true"></span>
       <div class="relative">
-        <div class="w-8 h-8 rounded-full bg-sky-500 flex items-center justify-center text-white text-xs font-bold mb-4">${parseInt(p.num)}</div>
+        <div class="w-8 h-8 rounded-full bg-sky-700 flex items-center justify-center text-white text-xs font-bold mb-4">${parseInt(p.num)}</div>
         <h3 class="font-heading font-semibold text-gray-900 mb-2">${p.title}</h3>
         <p class="text-gray-500 text-sm leading-relaxed">${p.desc}</p>
       </div>
@@ -769,7 +823,7 @@
         <div class="w-10 h-10 rounded-full bg-gradient-to-br from-sky-500 to-violet-500 flex items-center justify-center text-white font-heading font-bold text-sm">${t.name.split(' ').map(w => w[0]).join('')}</div>
         <div>
           <div class="text-white text-sm font-medium">${t.name}</div>
-          <div class="text-gray-500 text-xs">${t.role}</div>
+          <div class="text-gray-400 text-xs">${t.role}</div>
         </div>
       </div>
     </div>
@@ -784,7 +838,7 @@
         <span class="text-white font-heading font-bold text-2xl">${m.name.split(' ').map(w => w[0]).join('')}</span>
       </div>
       <h3 class="font-heading font-semibold text-gray-900 text-center mb-1">${m.name}</h3>
-      <p class="text-sky-600 text-sm text-center font-medium mb-3">${m.designation}</p>
+      <p class="text-sky-700 text-sm text-center font-medium mb-3">${m.designation}</p>
       <div class="flex items-center justify-center gap-1 text-gray-600 text-xs">
         <i data-lucide="briefcase" style="width:14px;height:14px;"></i>
         <span>${m.experience} years experience</span>
@@ -823,7 +877,7 @@
           const interval = setInterval(() => {
             current += step;
             if (current >= target) { current = target; clearInterval(interval); }
-            el.textContent = current + (el.parentElement.querySelector('.text-gray-400')?.textContent.includes('%') ? '%' : '+');
+            el.textContent = current + (el.parentElement.querySelector('.text-gray-600')?.textContent.includes('%') ? '%' : '+');
           }, 30);
         });
       }
@@ -835,57 +889,15 @@
     document.getElementById('mobileMenuClose').addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
     document.querySelectorAll('.mobile-link').forEach(a => a.addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open')));
 
-    // Element SDK - Load config from data.js
-    const defaultConfig = siteData.config;
-
-    function applyConfig(config) {
-      const c = { ...defaultConfig, ...config };
-      document.getElementById('heroHeadline').textContent = c.hero_headline;
-      document.getElementById('heroSubheadline').textContent = c.hero_subheadline;
-      document.getElementById('aboutTitle').textContent = c.about_title;
-      document.getElementById('ctaHeadline').textContent = c.cta_headline;
-
-      document.documentElement.style.setProperty('--bg', c.background_color);
-      document.documentElement.style.setProperty('--surface', c.surface_color);
-      document.documentElement.style.setProperty('--text', c.text_color);
-      document.documentElement.style.setProperty('--primary', c.primary_action_color);
-      document.documentElement.style.setProperty('--secondary', c.secondary_action_color);
-
-      const headingEls = document.querySelectorAll('.font-heading');
-      headingEls.forEach(el => el.style.fontFamily = `${c.font_family}, Outfit, sans-serif`);
-    }
-
-    window.elementSdk.init({
-      defaultConfig,
-      onConfigChange: async (config) => applyConfig(config),
-      mapToCapabilities: (config) => ({
-        recolorables: [
-          { get: () => config.background_color || defaultConfig.background_color, set: (v) => { config.background_color = v; window.elementSdk.setConfig({ background_color: v }); } },
-          { get: () => config.surface_color || defaultConfig.surface_color, set: (v) => { config.surface_color = v; window.elementSdk.setConfig({ surface_color: v }); } },
-          { get: () => config.text_color || defaultConfig.text_color, set: (v) => { config.text_color = v; window.elementSdk.setConfig({ text_color: v }); } },
-          { get: () => config.primary_action_color || defaultConfig.primary_action_color, set: (v) => { config.primary_action_color = v; window.elementSdk.setConfig({ primary_action_color: v }); } },
-          { get: () => config.secondary_action_color || defaultConfig.secondary_action_color, set: (v) => { config.secondary_action_color = v; window.elementSdk.setConfig({ secondary_action_color: v }); } }
-        ],
-        borderables: [],
-        fontEditable: {
-          get: () => config.font_family || defaultConfig.font_family,
-          set: (v) => { config.font_family = v; window.elementSdk.setConfig({ font_family: v }); }
-        },
-        fontSizeable: {
-          get: () => config.font_size || defaultConfig.font_size,
-          set: (v) => { config.font_size = v; window.elementSdk.setConfig({ font_size: v }); }
-        }
-      }),
-      mapToEditPanelValues: (config) => new Map([
-        ['hero_headline', config.hero_headline || defaultConfig.hero_headline],
-        ['hero_subheadline', config.hero_subheadline || defaultConfig.hero_subheadline],
-        ['about_title', config.about_title || defaultConfig.about_title],
-        ['team_title', config.team_title || defaultConfig.team_title],
-        ['cta_headline', config.cta_headline || defaultConfig.cta_headline]
-      ])
+    // Apply headline config from data.js
+    const c = siteData.config;
+    document.getElementById('heroHeadline').textContent = c.hero_headline;
+    document.getElementById('heroSubheadline').textContent = c.hero_subheadline;
+    document.getElementById('aboutTitle').textContent = c.about_title;
+    document.getElementById('teamTitle').textContent = c.team_title;
+    document.getElementById('ctaHeadline').textContent = c.cta_headline;
     });
   </script>
-  <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'9f0da6cda2f9578d',t:'MTc3Njk1NTUyMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
 </body>
 
 </html>
